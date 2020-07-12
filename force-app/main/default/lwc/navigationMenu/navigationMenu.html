@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-grid">
+        <button class="dl-trigger">Open Menu</button>
+        <div class="slds-m-left_medium menuHeader">Topic Navigation</div>
+        <ul class="dl-menu dl-menu-toggle">
+          <template for:each={menuItems} for:item="menuItem">
+              <c-navigation-menu-item key={menuItem.id} menu-item={menuItem.items}></c-navigation-menu-item>
+          </template>   
+        </ul>
+  </div>
+</template>
