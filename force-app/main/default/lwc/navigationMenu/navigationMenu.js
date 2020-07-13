@@ -167,4 +167,10 @@ export default class NavigationMenu extends LightningElement {
             "id": 30
         }]
     }];
+
+    triggerMenu(event) {
+        const menu = this.template.querySelectorAll(".navmenu-menu")[0];
+        menu.classList.toggle('navmenu-hidden');
+        event.currentTarget.classList.toggle('change')
+    }
 }

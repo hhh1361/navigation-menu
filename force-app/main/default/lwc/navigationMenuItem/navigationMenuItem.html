@@ -1,8 +1,8 @@
 <template>
     <template if:true={menuItem.length}>
-        <li class="">
-            <a href="#" class="menuOption">{label}</a>
-            <ul class="menuSubmenu">
+        <li class="" >
+            <div class="navmenu-submenu" onclick={click}>{label}</div>
+            <ul class="navmenu-list navmenu-hidden">
                <template for:each={menuItem} for:item="item">
                     <c-navigation-menu-item key={item.id} menu-item={item.items} label={item.label} href={item.href}></c-navigation-menu-item>
                </template>
@@ -12,7 +12,7 @@
 
     <template if:false={menuItem.length}>
         <li class="">
-            <a href={href} class="menuOption">{label}</a>
+            <a href={href} class="navmenu-option">{label}</a>
         </li>
     </template>
 </template>

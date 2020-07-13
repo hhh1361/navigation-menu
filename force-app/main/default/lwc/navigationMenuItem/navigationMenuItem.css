@@ -1,0 +1,18 @@
+.navmenu-option, .navmenu-submenu {
+    border: 1px solid red;
+    width: 100%;
+    cursor: pointer;
+}
+
+.navmenu-hidden {
+    display: none;
+}
+
+
+.navmenu-submenu {
+    font-weight: bold;
+}
+
+.navmenu-list {
+    margin-left: 30px;
+}

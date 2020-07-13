@@ -9,4 +9,10 @@ export default class NavigationMenuItem extends LightningElement {
         // console.log('menu item: ', JSON.parse(JSON.stringify(this.menuItem)).length)
         // console.log('isArray1: ', this.menuItem.length)
     }
+
+    click(e) {
+        console.log(e)
+        e.target.nextSibling.classList.toggle('navmenu-hidden')
+        e.target.nextSibling.classList.toggle('navmenu-show')
+    }
 }
