@@ -173,9 +173,4 @@ export default class NavigationMenu extends LightningElement {
         menu.classList.toggle('navmenu__hide');
         event.currentTarget.classList.toggle('change')
     }
-
-    handleCloseMenus(event) {
-        console.log('catched in parent')
-        console.log(event.detail)
-    }
 }
