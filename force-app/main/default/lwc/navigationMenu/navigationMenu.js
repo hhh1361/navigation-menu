@@ -169,8 +169,13 @@ export default class NavigationMenu extends LightningElement {
     }];
 
     triggerMenu(event) {
-        const menu = this.template.querySelectorAll(".navmenu-menu")[0];
-        menu.classList.toggle('navmenu-hidden');
+        const menu = this.template.querySelectorAll(".navmenu__menu")[0];
+        menu.classList.toggle('navmenu__hide');
         event.currentTarget.classList.toggle('change')
+    }
+
+    handleCloseMenus(event) {
+        console.log('catched in parent')
+        console.log(event.detail)
     }
 }

@@ -4,15 +4,28 @@ export default class NavigationMenuItem extends LightningElement {
     @api menuItem
     @api label
     @api href
+    @api nestLevel
 
-    connectedCallback() {
-        // console.log('menu item: ', JSON.parse(JSON.stringify(this.menuItem)).length)
-        // console.log('isArray1: ', this.menuItem.length)
+    get listClassname() {
+        return `navmenu__list navmenu__hide nest-level-${this.nestLevel}`
+    }
+
+    get next(){
+        return +this.nestLevel + 1
     }
 
     click(e) {
-        console.log(e)
-        e.target.nextSibling.classList.toggle('navmenu-hidden')
-        e.target.nextSibling.classList.toggle('navmenu-show')
+        const selectedEvent = new CustomEvent("closemenus", {
+            detail: this.nestLevel,
+            bubbles: true,
+          });
+      
+        this.dispatchEvent(selectedEvent);
+
+
+
+        e.target.nextSibling.classList.toggle('navmenu__hide')
+        e.target.firstChild.classList.toggle('pointer-bottom')
+        
     }
 }

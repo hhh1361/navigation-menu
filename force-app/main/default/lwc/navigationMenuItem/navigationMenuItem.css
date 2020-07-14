@@ -1,18 +1,84 @@
-.navmenu-option, .navmenu-submenu {
-    border: 1px solid red;
+.navmenu__option, .navmenu__submenu {
     width: 100%;
     cursor: pointer;
+    display: inline-block;
+    height: 45px;
+    padding: 15px 20px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+    color: #fff;
+    outline: none;
+    outline-width: initial;
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s ease;
+    z-index: 99999;
 }
 
-.navmenu-hidden {
-    display: none;
-}
-
-
-.navmenu-submenu {
+.navmenu__option:hover, .navmenu__submenu:hover {
     font-weight: bold;
+    color: #004989;
 }
 
-.navmenu-list {
-    margin-left: 30px;
+.navmenu__hide {
+    max-height: 0px !important; 
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.navmenu__hide li{
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+.navmenu__submenu {
+    width: 100%;
+}
+
+.navmenu__list {
+    padding-left: 30px;
+    max-height: 700px;
+    transition: max-height .3s ease;
+}
+
+
+.navmenu__submenu_pointer {
+    float: right;
+    font-size: 22px;
+    transition: all .3s linear;
+}
+
+.pointer-bottom {
+    transform: rotate(90deg);
+}
+
+.nest-level-1 {
+    background-color: rgb(196, 18, 53);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.nest-level-2 {
+    background-color: rgb(206, 18, 63);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.nest-level-3 {
+    background-color: rgb(216, 18, 73);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.nest-level-4 {
+    background-color: rgb(226, 18, 83);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.nest-level-5 {
+    background-color: rgb(236, 18, 93);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
