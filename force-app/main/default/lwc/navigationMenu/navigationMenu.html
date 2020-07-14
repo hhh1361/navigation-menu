@@ -7,9 +7,7 @@
         </div>
         <div class="slds-m-left_medium navmenu__header">Topic Navigation</div>
         <ul class="navmenu__menu navmenu__hide">
-            <template for:each={menuItems} for:item="menuItem">
-                <c-navigation-menu-item key={menuItem.id} menu-item={menuItem.items} label={menuItem.label} nest-level="1"></c-navigation-menu-item>
-            </template>   
+            <c-navigation-menu-item menu-item={menuItems} nest-level="0" is-first-level="true"></c-navigation-menu-item>
         </ul>
     </div>
 
