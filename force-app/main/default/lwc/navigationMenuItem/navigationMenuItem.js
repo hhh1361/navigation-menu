@@ -4,9 +4,10 @@ export default class NavigationMenuItem extends LightningElement {
     @api menuItem
     @api label
     @api href
+    // nest level is needed to have different backgrounds on different lays
     @api nestLevel
     @api isFirstLevel
-    @api isSubmenuClosed 
+    @api isSubmenuClosed
 
 
     get listClassname() {
@@ -15,40 +16,29 @@ export default class NavigationMenuItem extends LightningElement {
     get pointerClassname() {
         return `navmenu__submenu_pointer ${this.isSubmenuClosed ? '' : 'pointer-bottom'}`
     }
-    get next(){
+    get next() {
         return +this.nestLevel + 1
     }
 
-    submenuClick(e) {
-        // close other menus on the same level of current branch
+    handleSubmenuClick(e) {
+        // close other menus except current branch
+        const selectedEvent = new CustomEvent("closemenus", {
+            detail: {},
+            bubbles: true,
+        });            
         if(this.isSubmenuClosed) {
-            const selectedEvent = new CustomEvent("closemenus", {
-                detail: {nestLevel: this.nestLevel,
-                    label: this.label},
-                bubbles: true,
-            });            
-            this.dispatchEvent(selectedEvent); 
+            this.dispatchEvent(selectedEvent);
             this.isSubmenuClosed = false;
         } else {
+            this.dispatchEvent(selectedEvent);
             this.isSubmenuClosed = true
         }
     }
-    handleCloseMenus(e) {
-        console.log(`Send component --- Label: ${e.detail.label} from nest level: ${e.detail.nestLevel}`)
-        console.log(`Catch component --- Label: ${this.label} from nest level: ${this.nestLevel}`)
-        const smth = this.template.querySelectorAll('c-navigation-menu-item')
-        Array.from(smth).forEach(i => {
-            i.isSubmenuClosed = true;
-            console.log(i.isSubmenuClosed);
+    @api handleCloseMenus() {
+        const siblings = this.template.querySelectorAll('c-navigation-menu-item')
+        siblings.forEach(element => {
+            element.isSubmenuClosed = true;
+            element.handleCloseMenus()
         })
-        Array.from(smth).forEach(i => {
-            console.log(i.isSubmenuClosed);
-        })
-
-    }
-    
-    @api dosmth() {
-        // const submenu = this.template.querySelector('.navmenu__submenu');
-        // submenu.classList.add('navmenu__hide')
     }
 }

@@ -1,18 +1,18 @@
 <template>
     <template if:true={menuItem.length}>
         <template if:false={isFirstLevel}>
-            <li class="">
-                <div class="navmenu__submenu" onclick={submenuClick}>
+            <li>
+                <div class="navmenu__submenu" onclick={handleSubmenuClick}>
                     <span class={pointerClassname}>&#62;</span>
                     {label}</div>
                 <ul class={listClassname}>
                    <template for:each={menuItem} for:item="item">
                         <c-navigation-menu-item 
-                            key={item.id} 
-                            menu-item={item.items} 
-                            label={item.label} 
-                            href={item.href} 
-                            nest-level={next} 
+                            key={item.id}
+                            menu-item={item.items}
+                            label={item.label}
+                            href={item.href}
+                            nest-level={next}
                             onclosemenus={handleCloseMenus}
                             is-submenu-closed="true">
                         </c-navigation-menu-item>
@@ -22,7 +22,7 @@
         </template>
         <template if:true={isFirstLevel}>
             <template for:each={menuItem} for:item="item">
-                <li class=""  key={item.id}>
+                <li key={item.id}>
                     <c-navigation-menu-item key={item.id} 
                         menu-item={item.items} 
                         label={item.label} 
@@ -37,7 +37,7 @@
     </template>
 
     <template if:false={menuItem.length}>
-        <li class="">
+        <li>
             <a href={href} class="navmenu__option">{label}</a>
         </li>
     </template>

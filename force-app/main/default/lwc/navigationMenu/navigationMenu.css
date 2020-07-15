@@ -45,6 +45,7 @@
 
 .navmenu__hide {
     opacity: 0 !important;
+    pointer-events: none;
 }
 
 .navmenu__menu {
